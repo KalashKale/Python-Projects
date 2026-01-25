@@ -14,7 +14,7 @@ with open('Bestseller - Sheet1.csv', 'r', encoding='utf8') as file:
             max_sales = sales
             best_selling_book = row
 
-with open('best_seller_info.csv', 'w',newline='', encoding='utf8') as newfile:
+with open('best_seller_info.csv', 'w',newline='', encoding='utf-8') as newfile:
     new_writer = csv.writer(newfile)
     new_writer.writerow(['Book','Author','Original language','First published','sales in millions','Genre'])
     new_writer.writerow(best_selling_book)
