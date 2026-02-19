@@ -11,10 +11,16 @@ def minutes_to_seconds(song):
     duration = song[1]
     minutes = int(duration)
     seconds = (duration - minutes) * 100
-    total_seconds = (minutes * 60) + seconds
+    total_seconds = (minutes * 60) + round(seconds)
     return total_seconds
-duration = map(minutes_to_seconds, playlist)
+duration_seconds = map(minutes_to_seconds, playlist)
 
-# print(f'Playlist: {playlist}')
-# print(f'Songs longer than 5 minutes {list(long_songs)}')
-print(f'Total duration in seconds: {list(duration)}')
+def add_duration(time, song):
+  return time + song[1]
+
+total_duration = reduce(add_duration, playlist, 0)
+
+print(f'Playlist: {playlist}')
+print(f'Songs longer than 5 minutes {list(long_songs)}')
+print(f'Durations in seconds: {list(duration_seconds)}')
+print(f'Total duration {total_duration:.2f}')
